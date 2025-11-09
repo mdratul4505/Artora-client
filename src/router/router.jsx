@@ -8,6 +8,8 @@ import MyGAalery from "../Pages/MyGAalery";
 import Favorites from "../Pages/Favorites";
 import Login from "../Pages/Login";
 import SingnUp from "../Pages/SingnUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import { FadeLoader } from "react-spinners";
 
 
 
@@ -17,7 +19,10 @@ export const router = createBrowserRouter([
     path: "/",
     Component:Mainlayout,
     errorElement:<Error></Error>,
-    hydrateFallbackElement:<p>loading....</p>,
+    hydrateFallbackElement:<div className="min-h-screen flex justify-center items-center">
+            <FadeLoader></FadeLoader>
+
+          </div>,
     children:[
         {
             index:true,
@@ -31,17 +36,23 @@ export const router = createBrowserRouter([
 
         {
             path:"/add-artwork",
-            element:<AddArtwork></AddArtwork>
+            element:<PrivateRoute>
+                <AddArtwork></AddArtwork>
+            </PrivateRoute>
         },
 
         {
             path:"/my-gallery",
-            element:<MyGAalery></MyGAalery>
+            element:<PrivateRoute>
+               <MyGAalery></MyGAalery>
+            </PrivateRoute>
         },
 
         {
             path:"/favorites",
-            element:<Favorites></Favorites>
+            element:<PrivateRoute>
+                <Favorites></Favorites>
+            </PrivateRoute>
         },
         {
             path:"/login",
@@ -51,6 +62,7 @@ export const router = createBrowserRouter([
             path:"/signup",
             Component:SingnUp,
         },
+
 
 
 

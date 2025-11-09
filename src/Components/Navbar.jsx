@@ -33,15 +33,21 @@ const Navbar = () => {
       <li className="font-semibold text-gray-600">
         <NavLink to="/explore">Explotr Artworks</NavLink>
       </li>
-      <li className="font-semibold text-gray-600">
-        <NavLink to="/add-artwork">Add Artwork</NavLink>
-      </li>
-      <li className="font-semibold text-gray-600">
-        <NavLink to="/my-gallery">My Gallery</NavLink>
-      </li>
-      <li className="font-semibold text-gray-600">
-        <NavLink to="/favorites">Favorites</NavLink>
-      </li>
+
+      {user && (
+        <>
+          <li className="font-semibold text-gray-600">
+            <NavLink to="/add-artwork">Add Artwork</NavLink>
+          </li>
+          <li className="font-semibold text-gray-600">
+            <NavLink to="/my-gallery">My Gallery</NavLink>
+          </li>
+          <li className="font-semibold text-gray-600">
+            <NavLink to="/favorites">Favorites</NavLink>
+          </li>
+        </>
+      )}
+
       {/* {
             user && <>
                 
@@ -105,23 +111,22 @@ const Navbar = () => {
           {user ? (
             <>
               <div className="relative group flex items-center">
+                <img
+                  src={user?.photoURL}
+                  alt={user?.displayName}
+                  className="w-10 h-10 rounded-full border-2 border-[#79D7D0] cursor-pointer object-cover"
+                />
 
-              <img
-                src={user?.photoURL}
-                alt={user?.displayName}
-                className="w-10 h-10 rounded-full border-2 border-[#79D7D0] cursor-pointer object-cover"
-              />
-
-              <div className="absolute top-12 right-0 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                {user.displayName || "User"}
-                <button
-                  onClick={handleLogOut}
-                  className="block mt-2 w-full text-center bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] px-3 py-1 rounded-md text-white"
-                >
-                  Logout
-                </button>
+                <div className="absolute top-12 right-0 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                  {user.displayName || "User"}
+                  <button
+                    onClick={handleLogOut}
+                    className="block mt-2 w-full text-center bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] px-3 py-1 rounded-md text-white"
+                  >
+                    Logout
+                  </button>
+                </div>
               </div>
-            </div>
             </>
           ) : (
             <>
