@@ -105,21 +105,23 @@ const Navbar = () => {
           {user ? (
             <>
               <div className="relative group flex items-center">
-                <img
-                  src={user?.photoURL}
-                  alt={user.displayName}
-                  className="w-10 h-10 rounded-full border-2 border-purple-500 cursor-pointer object-cover"
-                />
-                <span className="absolute right-full mr-3 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
-                  {user.displayName || "User"}
-                </span>
+
+              <img
+                src={user?.photoURL}
+                alt={user?.displayName}
+                className="w-10 h-10 rounded-full border-2 border-[#79D7D0] cursor-pointer object-cover"
+              />
+
+              <div className="absolute top-12 right-0 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                {user.displayName || "User"}
+                <button
+                  onClick={handleLogOut}
+                  className="block mt-2 w-full text-center bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] px-3 py-1 rounded-md text-white"
+                >
+                  Logout
+                </button>
               </div>
-              <button
-                onClick={handleLogOut}
-                className="absolute right-full mr-3 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap"
-              >
-                Logout
-              </button>
+            </div>
             </>
           ) : (
             <>
