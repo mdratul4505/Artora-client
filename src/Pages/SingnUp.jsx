@@ -91,7 +91,7 @@ const SignUp = () => {
     <div className="py-20 flex items-center justify-center bg-[#FCF9F5] px-4">
       <div
         data-aos="zoom-in-down"
-        className="bg-white rounded-xl shadow-md w-full max-w-sm px-6 py-10"
+        className="bg-white rounded-xl shadow-md w-full max-w-sm lg:max-w-lg md:max-w-md px-6 py-10"
       >
         <div className="flex justify-center mb-4">
           <div className="bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] w-14 h-14 flex items-center justify-center rounded-full text-white text-2xl font-bold">
