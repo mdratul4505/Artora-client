@@ -86,12 +86,12 @@ const Footer = () => {
               <FaEnvelopeCircleCheck />
             </a>
           </div>
-          <p className="text-sm text-gray-600">📧 contact@skillswap.com</p>
+          <p className="text-sm text-gray-600">📧 contact@Artora.com</p>
         </div>
       </div>
 
       <div className="mt-10 text-center text-sm  border-t border-gray-200 pt-4 font-semibold bg-gradient-to-l from-[#ec605b] to-[#2dd6cb]  bg-clip-text text-transparent">
-        © {new Date().getFullYear()} SkillSwap — All rights reserved.
+        © {new Date().getFullYear()} ARTORA — All rights reserved.
       </div>
     </footer>
     );

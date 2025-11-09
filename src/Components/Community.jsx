@@ -31,7 +31,7 @@ const Community = () => {
 
         {/* Card 2 */}
         <div className="flex flex-col items-center text-center">
-          <div className="w-20 h-20 rounded-full flex items-center justify-center mb-5 bg-gradient-to-r from-[#FF8C88] to-[#79D7D0]git">
+          <div className="w-20 h-20 rounded-full flex items-center justify-center mb-5 bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] ">
             <Users className="w-8 h-8 text-orange-700" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
