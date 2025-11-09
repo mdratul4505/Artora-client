@@ -1,8 +1,30 @@
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import logo from "../../public/logo.png";
+import { AuthContext } from "../Provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logOut } = use(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => toast.success("You logged out successfully 🎉"))
+      .catch((error) => toast.error(error.message));
+  };
+
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    const html = document.querySelector("html");
+    html.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark" : "light");
+  };
+
   const links = (
     <>
       <li className="font-semibold text-gray-600">
@@ -58,15 +80,15 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="flex items-center gap-1">
-           <Link to={'/'}>
-           <div className="bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] rounded-xl">
-              <img
-              src={logo}
-              alt="Artora Logo"
-              className="w-10 h-10 object-contain"
-            />
-            </div>
-           </Link>
+            <Link to={"/"}>
+              <div className="bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] rounded-xl">
+                <img
+                  src={logo}
+                  alt="Artora Logo"
+                  className="w-10 h-10 object-contain"
+                />
+              </div>
+            </Link>
 
             <Link
               to="/"
@@ -80,8 +102,28 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          
-          <Link
+          {user ? (
+            <>
+              <div className="relative group flex items-center">
+                <img
+                  src={user?.photoURL}
+                  alt={user.displayName}
+                  className="w-10 h-10 rounded-full border-2 border-purple-500 cursor-pointer object-cover"
+                />
+                <span className="absolute right-full mr-3 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap">
+                  {user.displayName || "User"}
+                </span>
+              </div>
+              <button
+                onClick={handleLogOut}
+                className="absolute right-full mr-3 bg-black text-white text-sm px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap"
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link
                 to="/login"
                 className=" mr-2 text-blue-600 underline hover:bg-[#79D7D0] hover:py-1 hover:px-3 hover:mr-0 hover:rounded-xl hover:text-white hover:no-underline"
               >
@@ -93,7 +135,12 @@ const Navbar = () => {
               >
                 Signup
               </Link>
+            </>
+          )}
         </div>
+      </div>
+      <div>
+        <Toaster />
       </div>
     </div>
   );
