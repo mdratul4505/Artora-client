@@ -5,19 +5,19 @@ import logo from "../../public/logo.png";
 const Navbar = () => {
   const links = (
     <>
-      <li className="font-semibold text-gray-600 text-lg">
+      <li className="font-semibold text-gray-600">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="font-semibold text-gray-600 text-lg">
+      <li className="font-semibold text-gray-600">
         <NavLink to="/explore">Explotr Artworks</NavLink>
       </li>
-      <li className="font-semibold text-gray-600 text-lg">
+      <li className="font-semibold text-gray-600">
         <NavLink to="/add-artwork">Add Artwork</NavLink>
       </li>
-      <li className="font-semibold text-gray-600 text-lg">
+      <li className="font-semibold text-gray-600">
         <NavLink to="/my-gallery">My Gallery</NavLink>
       </li>
-      <li className="font-semibold text-gray-600 text-lg">
+      <li className="font-semibold text-gray-600">
         <NavLink to="/favorites">Favorites</NavLink>
       </li>
       {/* {
@@ -29,8 +29,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="border-b border-gray-300 bg-white shadow-md">
-      <div className="container mx-auto flex h-16 items-center justify-between">
+    <div className="sticky top-0 z-50 border-b border-gray-300 bg-white shadow-md">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -82,13 +82,13 @@ const Navbar = () => {
         <div className="navbar-end">
           <Link
                 to="/login"
-                className="text-xl mr-2 text-blue-600 underline hover:bg-[#79D7D0] hover:py-1 hover:px-3 hover:mr-0 hover:rounded-xl hover:text-white hover:no-underline"
+                className=" mr-2 text-blue-600 underline hover:bg-[#79D7D0] hover:py-1 hover:px-3 hover:mr-0 hover:rounded-xl hover:text-white hover:no-underline"
               >
                 Login
               </Link>
               <Link
                 to="/signup"
-                className="btn text-lg font-medium rounded-xl text-white bg-gradient-to-r from-[#FF8C88] to-[#79D7D0]"
+                className="btn  font-medium rounded-xl text-white bg-gradient-to-r from-[#FF8C88] to-[#79D7D0]"
               >
                 Signup
               </Link>
