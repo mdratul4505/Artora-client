@@ -80,6 +80,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
+          
           <Link
                 to="/login"
                 className=" mr-2 text-blue-600 underline hover:bg-[#79D7D0] hover:py-1 hover:px-3 hover:mr-0 hover:rounded-xl hover:text-white hover:no-underline"
