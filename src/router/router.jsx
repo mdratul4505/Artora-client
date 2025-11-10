@@ -11,6 +11,7 @@ import SingnUp from "../Pages/SingnUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { FadeLoader } from "react-spinners";
 import CartDeatils from "../Components/CartDeatils";
+import DataUpdate from "../Pages/DataUpdate";
 
 export const router = createBrowserRouter([
   {
@@ -40,7 +41,8 @@ export const router = createBrowserRouter([
             <CartDeatils></CartDeatils>
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(`http://localhost:3000/explore-artworks/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/explore-artworks/${params.id}`),
       },
 
       {
@@ -76,6 +78,16 @@ export const router = createBrowserRouter([
       {
         path: "/signup",
         Component: SingnUp,
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <DataUpdate></DataUpdate>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/explore-artworks/${params.id}`),
       },
     ],
   },
