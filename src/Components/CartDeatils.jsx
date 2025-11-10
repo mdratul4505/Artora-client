@@ -1,13 +1,12 @@
-import React, { use, useState } from "react";
-import { useLoaderData, useNavigate } from "react-router";
+import React, { useContext, useEffect, useState } from "react";
+import { useLoaderData} from "react-router";
 import toast from "react-hot-toast";
 import { AuthContext } from "../Provider/AuthProvider";
 
 const CartDetails = () => {
   const data = useLoaderData();
-  const navigate = useNavigate();
-  const {user} = use(AuthContext)
- 
+
+  const { user } = useContext(AuthContext);
 
   const {
     _id,
@@ -19,132 +18,145 @@ const CartDetails = () => {
     dimensions,
     price,
     userName,
-
     created_at,
     likes = 0,
   } = data || {};
 
-
   const [likeCount, setLikeCount] = useState(likes);
   const [isFavorite, setIsFavorite] = useState(false);
+  const [artistArtworks, setArtistArtworks] = useState([]);
+  const [artistInfo, setArtistInfo] = useState({ photoURL: "", totalArtworks: 0 });
 
   const formattedDate = new Date(created_at).toLocaleDateString();
 
 
   const handleLike = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/explore-artworks/${_id}/like`, {
-        method: "PATCH",
-      });
+      const res = await fetch(`http://localhost:3000/explore-artworks/${_id}/like`, { method: "PATCH" });
       if (res.ok) {
-        setLikeCount((prev) => prev + 1);
+        setLikeCount(prev => prev + 1);
         toast.success("You liked this artwork ❤️");
-      } else {
-        toast.error("Failed to like artwork");
       }
     } catch (err) {
       console.error(err);
-      toast.error("Error while liking artwork");
+      toast.error("Error liking artwork");
     }
   };
 
 
   const handleFavorite = async () => {
-    try {
-      const res = await fetch(`http://localhost:3000/favorites`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          artworkId: _id,
-          title,
-          image,
-          userName,
-          userEmail: "test@example.com",
-        }),
-      });
+  if (!user?.email) return toast.error("Login first to add favorites!");
+  try {
+    const res = await fetch("http://localhost:3000/favorites", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        artworkId: _id,
+        title,
+        image,
+        userName,
+        userEmail: user.email,
+      }),
+    });
 
-      if (res.ok) {
-        setIsFavorite(true);
-        toast.success("Added to favorites ⭐");
-        navigate("/favorites"); 
-      } else {
-        toast.error("Failed to add favorite!");
-      }
-    } catch (err) {
-      console.error(err);
-      toast.error("Error adding to favorites!");
+    if (res.ok) {
+      setIsFavorite(true); 
+      toast.success("Added to favorites ");
+
     }
-  };
+  } catch (err) {
+    console.error(err);
+    toast.error("Failed to add favorite!");
+  }
+};
+
+
+
+  useEffect(() => {
+    if (userName) {
+      fetch(`http://localhost:3000/artist-artworks/${userName}`)
+        .then(res => res.json())
+        .then(data => {
+          setArtistArtworks(data || []);
+          setArtistInfo({
+            photoURL: data[0]?.userPhoto || "",
+            totalArtworks: data.length,
+          });
+        })
+        .catch(err => console.error(err));
+    }
+  }, [userName]);
 
   return (
-    <div className="min-h-screen bg-[#FCF9F5] flex justify-center items-center px-4 py-16">
-      <div className="bg-white rounded-2xl shadow-lg overflow-hidden max-w-5xl w-full grid grid-cols-1 md:grid-cols-2">
-        <div className="overflow-hidden p-5">
-          <img
-            src={image}
-            alt={title}
-            className="w-full h-150 rounded-2xl object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
-          />
+    <div className="min-h-screen bg-[#FCF9F5] flex flex-col justify-center items-center px-4 py-16">
+
+      <div className="bg-white rounded-2xl shadow-lg max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 mb-10">
+        <div className="p-5">
+          <img src={image} alt={title} className="w-full h-150 rounded-2xl object-cover hover:scale-105 transition-transform duration-700" />
         </div>
 
         <div className="p-8 flex flex-col justify-between">
           <div>
             <div className="flex justify-between items-start">
-              <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
-              <span className="text-xs font-medium bg-[#111440] text-white px-3 py-1 rounded-full">
-                {category}
-              </span>
+              <h1 className="text-3xl font-bold">{title}</h1>
+              <span className="text-xs bg-[#111440] text-white px-3 py-1 rounded-full">{category}</span>
             </div>
-            <p className="text-gray-500 text-sm mt-1">
-              Created on {formattedDate}
-            </p>
+            <p className="text-gray-500 text-sm mt-1">Created on {formattedDate}</p>
+
 
             <div className="mt-4 p-3 border rounded-xl flex items-center gap-3">
-              <div className="flex items-center justify-center text-lg font-semibold">
-                {<div className="bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] rounded-full h-10 w-10"><img className="text-white rounded-full h-10 w-10 " src={user.photoURL} alt="" /></div> || "A"}
-              </div>
+              {artistInfo.photoURL ? (
+                <img className="rounded-full h-10 w-10" src={artistInfo.photoURL} alt={userName} />
+              ) : (
+                <div className="bg-gray-300 h-10 w-10 rounded-full flex items-center justify-center">{userName[0]}</div>
+              )}
               <div>
                 <p className="text-sm text-gray-400">Artist</p>
-                <h3 className="font-medium text-gray-800">{userName}</h3>
+                <h3 className="font-medium">{userName}</h3>
+                <p className="text-xs text-gray-500">{artistInfo.totalArtworks} artworks</p>
               </div>
             </div>
 
             <div className="mt-6 space-y-2 text-gray-700">
-              <p>
-                <span className="font-semibold text-gray-800">Medium:</span> {medium}
-              </p>
-              <p>
-                <span className="font-semibold text-gray-800">Description:</span> {description}
-              </p>
-              <p>
-                <span className="font-semibold text-gray-800">Dimensions:</span> {dimensions}
-              </p>
-              <p>
-                <span className="font-semibold text-gray-800">Price:</span> $
-                <span className="text-red-400 ml-1">{price}</span>
-              </p>
+              <p><span className="font-semibold">Medium:</span> {medium}</p>
+              <p><span className="font-semibold">Description:</span> {description}</p>
+              <p><span className="font-semibold">Dimensions:</span> {dimensions}</p>
+              <p><span className="font-semibold">Price:</span> ${price}</p>
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-4">
-            <button
-              onClick={handleLike}
-              className="flex-1 py-2 rounded-lg bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] text-white font-medium shadow-md hover:opacity-90 transition"
-            >
+          <div className="mt-8 flex gap-4">
+            <button onClick={handleLike} className="flex-1 py-2 rounded-lg bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] text-white">
               ❤️ Like ({likeCount})
             </button>
             <button
               onClick={handleFavorite}
               disabled={isFavorite}
-              className={`flex-1 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium transition ${
-                isFavorite
-                  ? "bg-purple-300 text-white cursor-not-allowed"
-                  : "hover:text-white hover:bg-purple-300"
-              }`}
+              className={`flex-1 py-2 rounded-lg border font-medium transition ${isFavorite ? "bg-purple-300 text-white cursor-not-allowed" : "hover:bg-purple-300 hover:text-white"}`}
             >
               ☆ {isFavorite ? "Added" : "Add to Favorites"}
             </button>
           </div>
+        </div>
+      </div>
+
+
+      <div className="max-w-5xl w-full">
+        <h2 className="text-2xl font-bold mb-4">Other artworks by {userName}</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {artistArtworks.length > 0 ? (
+            artistArtworks.map(art => (
+              <div key={art._id} className="border rounded-lg overflow-hidden">
+                <img src={art.image} alt={art.title} className="w-full h-40 object-cover" />
+                <div className="p-2">
+                  <h3 className="font-medium">{art.title}</h3>
+                  <p className="text-sm text-gray-500">{art.medium}</p>
+                </div>
+              </div>
+            ))
+          ) : (
+            <p className="col-span-3 text-center text-gray-400">No other artworks</p>
+          )}
         </div>
       </div>
     </div>
@@ -152,3 +164,4 @@ const CartDetails = () => {
 };
 
 export default CartDetails;
+

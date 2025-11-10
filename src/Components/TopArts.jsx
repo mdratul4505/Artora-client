@@ -18,7 +18,7 @@ const TopArts = () => {
       <div className="mb-15 text-center space-y-4">
         <h1
         data-aos="fade-right"
-        className="text-3xl  md:text-4xl lg:text-5xl font-bold ">
+        className="text-2xl  md:text-3xl lg:text-4xl font-bold ">
           Top Artists of the Week
         </h1>
         <p

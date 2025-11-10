@@ -21,7 +21,7 @@ const ExploreArtworks = () => {
       <div
       data-aos="fade-left"
       className="font-bold text-4xl text-center mt-10 mb-5">
-        Explore Artworks
+        Explore Artworks ({data.length})
       </div>
       <div
       data-aos="fade-right"

@@ -150,7 +150,7 @@ const AddArtwork = () => {
             <input
               type="text"
               name="dimensions"
-              required
+             
              
               className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
@@ -162,7 +162,7 @@ const AddArtwork = () => {
             <input
               type="number"
               name="price"
-              required
+             
              
               className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />

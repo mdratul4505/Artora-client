@@ -16,7 +16,7 @@ const Community = () => {
 
   return (
     <section className="py-16 bg-white text-center">
-      <h2 data-aos="fade-left" className="text-3xl font-bold text-gray-900 mb-3">
+      <h2 data-aos="fade-left" className="text-4xl md:text-3xl text-2xl font-bold text-gray-900 mb-3">
         Why Join Artify?
       </h2>
       <p data-aos="fade-right" className="text-gray-600 mb-12">

@@ -22,7 +22,7 @@ const ArtistCTA = () => {
 
       <h1
       data-aos="fade-left"
-      className="text-white text-4xl md:text-5xl font-bold">
+      className="text-white text-3xl md:text-4xl font-bold">
         
         Ready to Share Your Art with the World?
       </h1>
