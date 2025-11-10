@@ -30,9 +30,13 @@ export const router = createBrowserRouter([
         },
 
         {
-            path:"/explore",
+            path:"/explore-artworks",
             Component:ExploreArtworks,
             loader: () =>fetch('http://localhost:3000/explore-artworks')
+        },
+        {
+            path:'/explore-artworks:id',
+            element:
         },
 
         {

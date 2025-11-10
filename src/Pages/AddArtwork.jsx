@@ -4,6 +4,41 @@ import Aos from 'aos';
 import "aos/dist/aos.css";
 
 const AddArtwork = () => {
+
+  const handelSubmit = (e) =>{
+    e.preventDefault()
+    const form = e.target;
+
+    const formData = {
+      image: form.image.value,
+      title: form.title.value,
+      category: form.category.value,
+      medium: form.medium.value,
+      description: form.description.value,
+      dimensions: form.dimensions.value,
+      price: form.price.value,
+      visibility: form.visibility.value,
+      userName: user?.displayName,
+      userEmail: user?.email,
+      created_at: new Date(),
+      likes: 0,
+    }
+    fetch('http://localhost:3000/explore-artworks' ,{
+      method:'POST',
+      headers:{
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify(formData)
+    })
+    .then(res => res.json())
+    .then(data =>{
+      console.log(data)
+    }).catch(error =>{
+      console.log(error)
+    })
+
+  }
+
       useEffect(() => {
         Aos.init({
           offset: 200,
@@ -18,10 +53,10 @@ const AddArtwork = () => {
     return (
         
     <div className="min-h-screen bg-[#FCF9F5]  flex items-center justify-center px-4 py-20">
-      <form
+      <form onSubmit={handelSubmit}
       data-aos="zoom-in-down"
       className="bg-white rounded-xl shadow-md w-full max-w-sm lg:max-w-xl md:max-w-lg space-y-5 px-6 py-10">
-        {/* --- Image URL --- */}
+
         <div className=''>
           <label className="block text-sm font-medium text-gray-700">
             Image URL <span className="text-red-500">*</span>
@@ -35,7 +70,6 @@ const AddArtwork = () => {
           />
         </div>
 
-        {/* --- Title --- */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Title <span className="text-red-500">*</span>
@@ -49,7 +83,6 @@ const AddArtwork = () => {
           />
         </div>
 
-        {/* --- Category Dropdown --- */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Category <span className="text-red-500">*</span>
@@ -68,7 +101,6 @@ const AddArtwork = () => {
           </select>
         </div>
 
-        {/* --- Medium/Tools --- */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Medium / Tools <span className="text-red-500">*</span>
@@ -82,7 +114,6 @@ const AddArtwork = () => {
           />
         </div>
 
-        {/* --- Description --- */}
         <div>
           <label className="block text-sm font-medium text-gray-700">
             Description <span className="text-red-500">*</span>
@@ -96,7 +127,7 @@ const AddArtwork = () => {
           ></textarea>
         </div>
 
-        {/* --- Dimensions & Price (Two Column) --- */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
@@ -124,7 +155,7 @@ const AddArtwork = () => {
           </div>
         </div>
 
-        {/* --- Name & Email (Two Column) --- */}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700">
