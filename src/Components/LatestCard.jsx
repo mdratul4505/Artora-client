@@ -1,13 +1,17 @@
-import React from "react";
+import React from 'react';
 import { Heart, Eye } from "lucide-react";
 import { Link } from "react-router";
 
-const AllArtworkCard = ({ art }) => {
-  const { image, category, title, _id, userName, likes } = art;
-  return (
-    <div
 
-    className="bg-white rounded-xl shadow-md hover:scale-105 transform transition ease-in-out overflow-hidden">
+const LatestCard = ({ art }) => {
+
+     
+    
+    const { image, category, title, _id, userName, likes } = art;
+    return (
+        <div
+
+         className="bg-white rounded-xl shadow-md hover:scale-105 transform transition ease-in-out overflow-hidden">
 
       <img src={image} alt={title} className="w-full h-52 object-cover" />
 
@@ -39,7 +43,7 @@ const AllArtworkCard = ({ art }) => {
         </Link>
       </div>
     </div>
-  );
+    );
 };
 
-export default AllArtworkCard;
+export default LatestCard;

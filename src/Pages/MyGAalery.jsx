@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
 import logo from "../../public/logo.png";
+import Swal from "sweetalert2";
 
 const MyGallery = () => {
   const { user } = useContext(AuthContext);
@@ -18,21 +19,33 @@ const MyGallery = () => {
   }, [user]);
 
   const handleDelete = (id) => {
-    const confirmDelete = confirm(
-      "Are you sure you want to delete this artwork?"
-    );
-    if (!confirmDelete) return;
-
-    fetch(`http://localhost:3000/explore-artworks/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then(() => {
-        toast.success(" Artwork deleted!");
-        setArts((prev) => prev.filter((art) => art._id !== id));
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      fetch(`http://localhost:3000/explore-artworks/${id}`, {
+        method: "DELETE",
       })
-      .catch(() => toast.error(" Failed to delete."));
-  };
+        .then((res) => res.json())
+        .then(() => {
+          Swal.fire(
+            "Deleted!",
+            "Your artwork has been deleted.",
+            "success"
+          );
+          setArts((prev) => prev.filter((art) => art._id !== id));
+        })
+        .catch(() => toast.error("Failed to delete."));
+    }
+  });
+};
+
 
   return (
     <div className="min-h-screen container mx-auto  px-4 py-10">
