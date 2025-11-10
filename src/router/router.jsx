@@ -10,69 +10,73 @@ import Login from "../Pages/Login";
 import SingnUp from "../Pages/SingnUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import { FadeLoader } from "react-spinners";
-
-
-
+import CartDeatils from "../Components/CartDeatils";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component:Mainlayout,
-    errorElement:<Error></Error>,
-    hydrateFallbackElement:<div className="min-h-screen flex justify-center items-center">
-            <FadeLoader></FadeLoader>
+    Component: Mainlayout,
+    errorElement: <Error></Error>,
+    hydrateFallbackElement: (
+      <div className="min-h-screen flex justify-center items-center">
+        <FadeLoader></FadeLoader>
+      </div>
+    ),
+    children: [
+      {
+        index: true,
+        Component: Home,
+      },
 
-          </div>,
-    children:[
-        {
-            index:true,
-            Component:Home,
-        },
+      {
+        path: "/explore-artworks",
+        Component: ExploreArtworks,
+        loader: () => fetch("http://localhost:3000/explore-artworks"),
+      },
+      {
+        path: "/explore-artworks/:id",
+        element: (
+          <PrivateRoute>
+            <CartDeatils></CartDeatils>
+          </PrivateRoute>
+        ),
+        loader: ({params}) => fetch(`http://localhost:3000/explore-artworks/${params.id}`)
+      },
 
-        {
-            path:"/explore-artworks",
-            Component:ExploreArtworks,
-            loader: () =>fetch('http://localhost:3000/explore-artworks')
-        },
-        {
-            path:'/explore-artworks:id',
-            element:
-        },
+      {
+        path: "/add-artwork",
+        element: (
+          <PrivateRoute>
+            <AddArtwork></AddArtwork>
+          </PrivateRoute>
+        ),
+      },
 
-        {
-            path:"/add-artwork",
-            element:<PrivateRoute>
-                <AddArtwork></AddArtwork>
-            </PrivateRoute>
-        },
+      {
+        path: "/my-gallery",
+        element: (
+          <PrivateRoute>
+            <MyGAalery></MyGAalery>
+          </PrivateRoute>
+        ),
+      },
 
-        {
-            path:"/my-gallery",
-            element:<PrivateRoute>
-               <MyGAalery></MyGAalery>
-            </PrivateRoute>
-        },
-
-        {
-            path:"/favorites",
-            element:<PrivateRoute>
-                <Favorites></Favorites>
-            </PrivateRoute>
-        },
-        {
-            path:"/login",
-            Component:Login,
-        },
-        {
-            path:"/signup",
-            Component:SingnUp,
-        },
-
-
-
-
-    ]
+      {
+        path: "/favorites",
+        element: (
+          <PrivateRoute>
+            <Favorites></Favorites>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/signup",
+        Component: SingnUp,
+      },
+    ],
   },
-
 ]);
-

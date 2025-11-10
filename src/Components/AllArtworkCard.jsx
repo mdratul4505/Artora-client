@@ -28,7 +28,8 @@ const AllArtworkCard = ({ art }) => {
           </div>
         </div>
 
-        <Link className="mt-4 ">
+        <Link
+        to={`/explore-artworks/${_id}`} className="mt-4 ">
           <button className="flex text-white font-senibold items-center mt-4 w-full rounded-xl gap-1 btn bg-gradient-to-r from-[#FF8C88] to-[#79D7D0]">
             <Eye className="w-4 h-4" />
             View Details

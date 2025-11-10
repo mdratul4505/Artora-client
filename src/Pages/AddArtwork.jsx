@@ -2,6 +2,7 @@ import React, { use, useEffect } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import toast from 'react-hot-toast';
 
 const AddArtwork = () => {
 
@@ -33,8 +34,11 @@ const AddArtwork = () => {
     .then(res => res.json())
     .then(data =>{
       console.log(data)
+      toast.success("🎨 Artwork added successfully!");
+      form.reset()
     }).catch(error =>{
       console.log(error)
+       toast.error("❌ Failed to add artwork. Try again!");
     })
 
   }
