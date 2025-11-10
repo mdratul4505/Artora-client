@@ -3,8 +3,12 @@ import { AuthContext } from '../Provider/AuthProvider';
 import Aos from 'aos';
 import "aos/dist/aos.css";
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router';
+
 
 const AddArtwork = () => {
+
+  const navigate = useNavigate();
 
   const handelSubmit = (e) =>{
     e.preventDefault()
@@ -36,6 +40,7 @@ const AddArtwork = () => {
       console.log(data)
       toast.success("🎨 Artwork added successfully!");
       form.reset()
+      navigate("/my-gallery");
     }).catch(error =>{
       console.log(error)
        toast.error("❌ Failed to add artwork. Try again!");
@@ -60,6 +65,11 @@ const AddArtwork = () => {
       <form onSubmit={handelSubmit}
       data-aos="zoom-in-down"
       className="bg-white rounded-xl shadow-md w-full max-w-sm lg:max-w-xl md:max-w-lg space-y-5 px-6 py-10">
+
+        <div>
+          <h1 className='text-center font-semibold text-2xl'>Upload Your Artwork</h1>
+          <p className='text-center text-gray-600'>Share your creativity with the world. Fill in the details below.</p>
+        </div>
 
         <div className=''>
           <label className="block text-sm font-medium text-gray-700">

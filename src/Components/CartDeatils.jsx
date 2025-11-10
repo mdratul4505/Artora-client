@@ -68,8 +68,8 @@ const CartDeatils = () => {
                 {dimensions}
               </p>
               <p>
-                <span className="font-semibold text-gray-800">Price:</span> $
-                {price}
+                <span className="font-semibold text-gray-800">Price:</span> $ 
+                <span className="text-red-400 ml-1">{price}</span>
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { Link } from "react-router";
 import toast from "react-hot-toast";
+import logo from "../../public/logo.png";
 
 const MyGallery = () => {
   const { user } = useContext(AuthContext);
@@ -16,9 +17,10 @@ const MyGallery = () => {
     }
   }, [user]);
 
-  // ✅ Delete Function
   const handleDelete = (id) => {
-    const confirmDelete = confirm("Are you sure you want to delete this artwork?");
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this artwork?"
+    );
     if (!confirmDelete) return;
 
     fetch(`http://localhost:3000/explore-artworks/${id}`, {
@@ -26,17 +28,27 @@ const MyGallery = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        toast.success("🗑️ Artwork deleted!");
+        toast.success(" Artwork deleted!");
         setArts((prev) => prev.filter((art) => art._id !== id));
       })
-      .catch(() => toast.error("❌ Failed to delete."));
+      .catch(() => toast.error(" Failed to delete."));
   };
 
   return (
-    <div className="min-h-screen bg-[#FCF9F5] px-4 py-10">
-      <h1 className="text-2xl font-semibold text-center mb-8">
-        🎨 My Gallery ({arts.length})
-      </h1>
+    <div className="min-h-screen container mx-auto  px-4 py-10">
+        <div className="flex flex-col items-center mb-6 md:mb-8 lg:mb-12">
+  <span>
+    <img
+      className="h-15 lg:mb-5 mb-3 md:mb-4 bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] rounded-xl"
+      src={logo}
+      alt=""
+    />
+  </span>
+  <h1 className="text-3xl font-semibold text-center">
+    My Gallery ({arts.length})
+  </h1>
+</div>
+
 
       {arts.length === 0 ? (
         <p className="text-center text-gray-500">No artworks added yet.</p>

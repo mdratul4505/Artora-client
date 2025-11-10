@@ -1,10 +1,20 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useLoaderData, useNavigate } from "react-router";
 import toast from "react-hot-toast";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const DataUpdate = () => {
-  const { user } = useContext(AuthContext);
+  useEffect(() => {
+          Aos.init({
+            offset: 200,
+            duration: 1000,
+            easing: "ease-in-sine",
+            delay: 100,
+          });
+        }, []);
+
   const navigate = useNavigate();
   const data = useLoaderData();
   const { _id, image, title, category, medium, description, dimensions, price, visibility } = data;
@@ -31,19 +41,20 @@ const DataUpdate = () => {
     })
       .then((res) => res.json())
       .then(() => {
-        toast.success("✅ Artwork updated successfully!");
+        toast.success(" Artwork updated successfully!");
         navigate("/my-gallery");
       })
-      .catch(() => toast.error("❌ Failed to update."));
+      .catch(() => toast.error(" Failed to update."));
   };
 
   return (
     <div className="min-h-screen bg-[#FCF9F5] flex items-center justify-center px-4 py-20">
       <form
+      data-aos="zoom-in-down"
         onSubmit={handleUpdate}
         className="bg-white rounded-xl shadow-md w-full max-w-xl space-y-5 px-6 py-10"
       >
-        <h2 className="text-xl font-semibold text-center text-gray-800">
+        <h2 className="text-2xl font-bold text-center text-gray-800">
           ✏️ Update Artwork
         </h2>
 
@@ -53,7 +64,7 @@ const DataUpdate = () => {
             type="url"
             name="image"
             defaultValue={image}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -63,7 +74,7 @@ const DataUpdate = () => {
             type="text"
             name="title"
             defaultValue={title}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -72,7 +83,7 @@ const DataUpdate = () => {
           <select
             name="category"
             defaultValue={category}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           >
             <option value="painting">Painting</option>
             <option value="digital">Digital Art</option>
@@ -88,7 +99,7 @@ const DataUpdate = () => {
             type="text"
             name="medium"
             defaultValue={medium}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -98,7 +109,7 @@ const DataUpdate = () => {
             name="description"
             defaultValue={description}
             rows="3"
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           ></textarea>
         </div>
 
@@ -109,7 +120,7 @@ const DataUpdate = () => {
               type="text"
               name="dimensions"
               defaultValue={dimensions}
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
           <div>
@@ -118,7 +129,7 @@ const DataUpdate = () => {
               type="number"
               name="price"
               defaultValue={price}
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
         </div>
@@ -128,7 +139,7 @@ const DataUpdate = () => {
           <select
             name="visibility"
             defaultValue={visibility}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           >
             <option value="public">Public</option>
             <option value="private">Private</option>
