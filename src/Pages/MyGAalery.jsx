@@ -1,68 +1,85 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router";
+import { Link } from "react-router"; 
 import toast from "react-hot-toast";
-import logo from "../../public/logo.png";
 import Swal from "sweetalert2";
+import logo from "../../public/logo.png";
 
 const MyGallery = () => {
   const { user } = useContext(AuthContext);
   const [arts, setArts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
+  // Fetch user artworks
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/explore-artworks?email=${user.email}`)
+      setLoading(true);
+      fetch(`http://localhost:3000/my-gallery?email=${user.email}`)
         .then((res) => res.json())
-        .then((data) => setArts(data))
-        .catch((err) => console.error(err));
+        .then((data) => {
+          setArts(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+          toast.error("Failed to load gallery");
+        });
     }
   }, [user]);
 
+  // Delete artwork
   const handleDelete = (id) => {
-  Swal.fire({
-    title: "Are you sure?",
-    text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
-  }).then((result) => {
-    if (result.isConfirmed) {
-      fetch(`http://localhost:3000/explore-artworks/${id}`, {
-        method: "DELETE",
-      })
-        .then((res) => res.json())
-        .then(() => {
-          Swal.fire(
-            "Deleted!",
-            "Your artwork has been deleted.",
-            "success"
-          );
-          setArts((prev) => prev.filter((art) => art._id !== id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:3000/explore-artworks/${id}`, {
+          method: "DELETE",
         })
-        .catch(() => toast.error("Failed to delete."));
-    }
-  });
-};
+          .then((res) => res.json())
+          .then(() => {
+            Swal.fire(
+              "Deleted!",
+              "Your artwork has been deleted.",
+              "success"
+            );
+            setArts((prev) => prev.filter((art) => art._id !== id));
+          })
+          .catch(() => toast.error("Failed to delete."));
+      }
+    });
+  };
 
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-screen">
+        <div className="w-12 h-12 border-4 border-[#FF8C88] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen container mx-auto  px-4 py-10">
-        <div className="flex flex-col items-center mb-6 md:mb-8 lg:mb-12">
-  <span>
-    <img
-      className="h-15 lg:mb-5 mb-3 md:mb-4 bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] rounded-xl"
-      src={logo}
-      alt=""
-    />
-  </span>
-  <h1 className="text-3xl font-semibold text-center">
-    My Gallery ({arts.length})
-  </h1>
-</div>
+    <div className="min-h-screen container mx-auto px-4 py-10">
+      {/* Header */}
+      <div className="flex flex-col items-center mb-8">
+        <img
+          className="h-15 mb-4 bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] rounded-xl"
+          src={logo}
+          alt="Logo"
+        />
+        <h1 className="text-3xl font-semibold text-center">
+          My Gallery ({arts.length})
+        </h1>
+      </div>
 
-
+      {/* Artwork Grid */}
       {arts.length === 0 ? (
         <p className="text-center text-gray-500">No artworks added yet.</p>
       ) : (
@@ -81,7 +98,7 @@ const MyGallery = () => {
                 <h3 className="font-semibold text-lg">{art.title}</h3>
                 <p className="text-sm text-gray-500">{art.category}</p>
 
-                <div className="flex justify-between">
+                <div className="flex justify-between mt-2">
                   <Link to={`/update/${art._id}`}>
                     <button className="px-4 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                       Update
