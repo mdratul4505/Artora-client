@@ -92,10 +92,7 @@ const Login = () => {
       .finally(() => setGoogleLoading(false));
   };
 
-  const handleForgetPasswordRedirect = () => {
-    const email = emailRef.current.value;
-    navigate("/forget-password", { state: { email } });
-  };
+ 
 
   return (
     <div className="py-20 flex items-center justify-center bg-[#FCF9F5] px-4">
@@ -151,13 +148,7 @@ const Login = () => {
             </span>
           </div>
 
-          <button
-            type="button"
-            onClick={handleForgetPasswordRedirect}
-            className="text-purple-600 text-right cursor-pointer hover:underline"
-          >
-            Forget Password?
-          </button>
+          
           {error && <p className="text-red-500 text-sm">{error}</p>}
 
           <button

@@ -42,8 +42,7 @@ export const router = createBrowserRouter([
             <CartDeatils></CartDeatils>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`http://localhost:3000/explore-artworks/${params.id}`),
+        
       },
 
       {

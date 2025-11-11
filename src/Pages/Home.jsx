@@ -9,7 +9,7 @@ import RecentProducts from "../Components/RecentProducts";
 const Home = () => {
   
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <HeroSection></HeroSection>
       <RecentProducts />
       <TopArts />
