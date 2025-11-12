@@ -48,7 +48,7 @@ const DataUpdate = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCF9F5] flex items-center justify-center px-4 py-20">
+    <div className="min-h-screen  flex items-center justify-center px-4 py-20">
       <form
       data-aos="zoom-in-down"
         onSubmit={handleUpdate}
@@ -64,7 +64,7 @@ const DataUpdate = () => {
             type="url"
             name="image"
             defaultValue={image}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -74,7 +74,7 @@ const DataUpdate = () => {
             type="text"
             name="title"
             defaultValue={title}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -83,7 +83,7 @@ const DataUpdate = () => {
           <select
             name="category"
             defaultValue={category}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           >
             <option value="painting">Painting</option>
             <option value="digital">Digital Art</option>
@@ -99,7 +99,7 @@ const DataUpdate = () => {
             type="text"
             name="medium"
             defaultValue={medium}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -109,7 +109,7 @@ const DataUpdate = () => {
             name="description"
             defaultValue={description}
             rows="3"
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           ></textarea>
         </div>
 
@@ -120,7 +120,7 @@ const DataUpdate = () => {
               type="text"
               name="dimensions"
               defaultValue={dimensions}
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
           <div>
@@ -129,7 +129,7 @@ const DataUpdate = () => {
               type="number"
               name="price"
               defaultValue={price}
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
         </div>
@@ -139,7 +139,7 @@ const DataUpdate = () => {
           <select
             name="visibility"
             defaultValue={visibility}
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           >
             <option value="public">Public</option>
             <option value="private">Private</option>

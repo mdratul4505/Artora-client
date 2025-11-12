@@ -16,22 +16,22 @@ const Community = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-white  text-center">
+    <section className="py-16 text-center">
       <h2 data-aos="fade-left" className="text-4xl md:text-3xl text-2xl font-bold  mb-3">
         Why Join Artify?
       </h2>
-      <p  className="text-gray-600 mb-12">
+      <div  className=" mb-12">
         <Fade delay={1e3} cascade damping={1e-1}>
                  Be part of a creative community that celebrates art in all its forms
                 </Fade>
-      </p>
+      </div>
 
       <div className="grid md:grid-cols-3 gap-10 container mx-auto px-6">
         <div data-aos="fade-up" className="flex flex-col items-center text-center">
           <div className="w-20 h-20 rounded-full flex items-center justify-center mb-5 bg-[#FF8C88]">
             <Star className="w-8 h-8 text-indigo-700" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-lg font-semibold  mb-2">
             Showcase Your Work
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
@@ -43,7 +43,7 @@ const Community = () => {
           <div className="w-20 h-20 rounded-full flex items-center justify-center mb-5 bg-gradient-to-r from-[#FF8C88] to-[#79D7D0]">
             <Users className="w-8 h-8 text-orange-700" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-lg font-semibold  mb-2">
             Connect with Artists
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed max-w-xs">
@@ -55,7 +55,7 @@ const Community = () => {
           <div className="w-20 h-20 rounded-full flex items-center justify-center mb-5 bg-[#79D7D0]">
             <TrendingUp className="w-8 h-8 text-purple-700" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">
+          <h3 className="text-lg font-semibold  mb-2">
             Grow Your Presence
           </h3>
           <p className="text-gray-600 text-sm leading-relaxed max-w-xs">

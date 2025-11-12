@@ -15,20 +15,20 @@ const TopArts = () => {
   }, []);
 
   return (
-    <div className="mt-15  md:mt-20 lg:mt-25   bg-purple-50  py-10 md:py-15 lg:py-20">
+    <div className="mt-15  md:mt-20 lg:mt-25  bg-purple-50  py-10 md:py-15 lg:py-20">
       <div className="mb-15 text-center space-y-4">
         <h1
         data-aos="fade-right"
-        className="text-2xl  md:text-3xl lg:text-4xl font-bold ">
+        className="text-2xl text-black md:text-3xl lg:text-4xl font-bold ">
           Top Artists of the Week
         </h1>
-        <p
+        <div
 
         className="text-gray-500 md:text-lg lg:text-xl">
           <Fade delay={1e3} cascade damping={1e-1}>
                   Learn from the best Artist of the week
                 </Fade>
-        </p>
+        </div>
       </div>
 
       <div className="grid p-4 md:p-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 container mx-auto gap-3 lg:gap-6">

@@ -95,7 +95,7 @@ const Login = () => {
  
 
   return (
-    <div className="py-20 flex items-center justify-center bg-[#FCF9F5] px-4">
+    <div className="py-20 flex items-center justify-center  px-4">
       <div
         data-aos="zoom-in-down"
         className="bg-white rounded-xl shadow-md w-full max-w-sm lg:max-w-lg md:max-w-md px-6 py-10"
@@ -126,7 +126,7 @@ const Login = () => {
               name="email"
               ref={emailRef}
               required
-              className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-[#f9f6f3] focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-[#f9f6f3] text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
 
@@ -138,7 +138,7 @@ const Login = () => {
               type={showPassword ? "text" : "password"}
               name="password"
               required
-              className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-[#f9f6f3] focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full px-4 py-2 rounded-lg border border-gray-200 bg-[#f9f6f3] text-gray-600 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
             <span
               className="absolute right-3 top-9 text-gray-500 cursor-pointer"
@@ -168,13 +168,13 @@ const Login = () => {
           <button
             onClick={handleGoogleLogin}
             disabled={googleLoading}
-            className="w-full py-3 cursor-pointer rounded-lg border border-gray-300 bg-white flex justify-center items-center gap-2 hover:bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] hover:text-white hover:font-semibold transition"
+            className="w-full py-3 cursor-pointer rounded-lg border text-gray-600 border-gray-300  flex justify-center items-center gap-2 hover:bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] hover:text-white hover:font-semibold transition"
           >
             <FcGoogle />
             {googleLoading ? "Loading..." : "Sign In with Google"}
           </button>
 
-          <p className="text-xs text-gray-500 text-center mt-4">
+          <p className=" text-gray-500 text-center mt-4">
             Don't have an account?
             <Link
               to="/signup"

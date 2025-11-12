@@ -11,7 +11,7 @@ const LatestCard = ({ art }) => {
     return (
         <div
 
-         className="bg-white rounded-xl shadow-md hover:scale-105 transform transition ease-in-out overflow-hidden">
+         className=" rounded-xl border-gray-100 border shadow-md hover:scale-105 transform transition ease-in-out overflow-hidden">
 
       <img src={image} alt={title} className="w-full h-52 object-cover" />
 
@@ -19,7 +19,7 @@ const LatestCard = ({ art }) => {
       <div className="p-4 space-y-2">
 
         <div className="flex justify-between item-center">
-          <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{title}</h3>
           <span className="inline-block bg-[#FFD7D1] text-[#FF6F61] text-xs font-medium px-3 py-1 rounded-full">
             {category}
           </span>

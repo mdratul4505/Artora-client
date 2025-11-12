@@ -18,7 +18,7 @@ const ExploreArtworks = () => {
   }, []);
 
   const [text] = useTypewriter({
-    words: ["Explore Artworks"], 
+    words: [""], 
     loop: 0,
     typeSpeed: 150,
     deleteSpeed: 80,
@@ -33,7 +33,7 @@ const ExploreArtworks = () => {
 
 
   useEffect(() => {
-    if (searchText.trim() === "") {
+    if (searchText.trim() === "Explore Artworks") {
       setArt(loaderData);
       setloding(true)
       return;

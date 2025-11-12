@@ -44,7 +44,7 @@ const CartDetails = () => {
     likes = 0,
     userPhoto,
   } = data || {};
-  console.log(userPhoto)
+
 
   const [likeCount, setLikeCount] = useState(likes);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -115,9 +115,9 @@ const CartDetails = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className="min-h-screen bg-[#FCF9F5] flex flex-col justify-center items-center px-4 py-16">
+    <div className="min-h-screen  flex flex-col justify-center items-center px-4 py-16">
 
-      <div className="bg-white rounded-2xl shadow-lg max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 mb-10">
+      <div className=" rounded-2xl shadow-lg max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 mb-10">
         <div className="p-5">
           <img
             src={image}
@@ -151,7 +151,7 @@ const CartDetails = () => {
               </div>
             </div>
 
-            <div className="mt-6 space-y-2 text-gray-700">
+            <div className="mt-6 space-y-2 ">
               <p>
                 <span className="font-semibold">Medium:</span> {medium}
               </p>

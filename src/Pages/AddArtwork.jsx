@@ -294,14 +294,14 @@ const AddArtwork = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FCF9F5] flex items-center justify-center px-4 py-20">
+    <div className="min-h-screen  flex items-center justify-center px-4 py-20">
       <form
         onSubmit={handelSubmit}
         data-aos="zoom-in-down"
         className="bg-white rounded-xl shadow-md w-full max-w-sm lg:max-w-xl md:max-w-lg space-y-5 px-6 py-10"
       >
         <div>
-          <h1 className="text-center font-semibold text-2xl">
+          <h1 className="text-center text-black mb-4 font-semibold text-2xl">
             Upload Your Artwork
           </h1>
           <p className="text-center text-gray-600">
@@ -318,7 +318,7 @@ const AddArtwork = () => {
             type="url"
             name="image"
             required
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -331,7 +331,7 @@ const AddArtwork = () => {
             type="text"
             name="title"
             required
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -343,7 +343,7 @@ const AddArtwork = () => {
           <select
             name="category"
             required
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           >
             <option value="">Select category</option>
             <option value="painting">Painting</option>
@@ -364,7 +364,7 @@ const AddArtwork = () => {
             name="medium"
             required
             placeholder="e.g. Oil on canvas, Photoshop"
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           />
         </div>
 
@@ -378,7 +378,7 @@ const AddArtwork = () => {
             required
             rows="4"
             placeholder="Describe your artwork..."
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           ></textarea>
         </div>
 
@@ -391,7 +391,7 @@ const AddArtwork = () => {
             <input
               type="text"
               name="dimensions"
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
           <div>
@@ -401,7 +401,7 @@ const AddArtwork = () => {
             <input
               type="number"
               name="price"
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
         </div>
@@ -418,7 +418,7 @@ const AddArtwork = () => {
               required
               value={user?.displayName || ""}
               readOnly
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
           <div>
@@ -431,7 +431,7 @@ const AddArtwork = () => {
               required
               value={user?.email || ""}
               readOnly
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
           <div>
@@ -443,7 +443,7 @@ const AddArtwork = () => {
               name="photoURL"
               value={user?.photoURL || ""}
               readOnly
-              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+              className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
             />
           </div>
         </div>
@@ -456,7 +456,7 @@ const AddArtwork = () => {
           <select
             name="visibility"
             defaultValue="public"
-            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
+            className="w-full mt-1 px-4 py-2 rounded-lg bg-[#FCF7F5] text-gray-600 border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#FF8C88]"
           >
             <option value="public">Public</option>
             <option value="private">Private</option>

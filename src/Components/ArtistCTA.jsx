@@ -28,7 +28,7 @@ const ArtistCTA = () => {
       </h1>
 
 
-      <p
+      <div
       data-aos="fade-right"
       className="text-white text-lg md:text-xl mt-4 max-w-2xl">
         Join thousands of artists who are already showcasing their creativity on{" "}
@@ -37,7 +37,7 @@ const ArtistCTA = () => {
                   ARTIFY
                 </Fade>
           </span>.
-      </p>
+      </div>
 
     </section>
     );

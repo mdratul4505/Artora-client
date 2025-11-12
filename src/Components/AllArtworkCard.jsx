@@ -8,7 +8,7 @@ const AllArtworkCard = ({ art }) => {
   return (
     <div
 
-    className="bg-white rounded-xl shadow-md hover:scale-105 transform transition ease-in-out overflow-hidden">
+    className="rounded-xl shadow-md border border-gray-100 hover:scale-105 transform transition ease-in-out overflow-hidden">
 
       <img src={image} alt={title} className="w-full h-52 object-cover" />
 

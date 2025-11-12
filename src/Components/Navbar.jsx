@@ -25,24 +25,25 @@ const Navbar = () => {
     setTheme(checked ? "dark" : "light");
   };
 
+
   const links = (
     <>
-      <li className="font-semibold text-gray-600">
+      <li className="font-semibold">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li className="font-semibold text-gray-600">
+      <li className="font-semibold">
         <NavLink to="/explore-artworks">Explotr Artworks</NavLink>
       </li>
 
       {user && (
         <>
-          <li className="font-semibold text-gray-600">
+          <li className="font-semibold">
             <NavLink to="/add-artwork">Add Artwork</NavLink>
           </li>
-          <li className="font-semibold text-gray-600">
+          <li className="font-semibold">
             <NavLink to="/my-gallery">My Gallery</NavLink>
           </li>
-          <li className="font-semibold text-gray-600">
+          <li className="font-semibold">
             <NavLink to="/favorites">Favorites</NavLink>
           </li>
         </>
@@ -54,7 +55,7 @@ const Navbar = () => {
  
 
   return (
-    <div className="sticky top-0 z-50 border-b border-gray-300 bg-white shadow-md">
+    <div className="sticky top-0 z-50 border-b border-gray-300  shadow-md">
       <div className="container mx-auto flex h-16 items-center justify-between px-4 lg:px-8">
         <div className="navbar-start">
           <div className="dropdown">
