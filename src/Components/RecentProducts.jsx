@@ -1,16 +1,31 @@
 import React from "react";
 import { useLoaderData } from "react-router";
 import LatestCard from "./LatestCard";
+import { Fade, Slide } from "react-awesome-reveal";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const RecentProducts = () => {
   const data = useLoaderData();
 
+  const [text] = useTypewriter({
+        words: ["Featured Artworks"],
+        loop: 0, 
+        typeSpeed: 150,
+        deleteSpeed: 80,
+        delaySpeed: 2000,
+      });
+
   return (
     <div className="container mx-auto">
       <div className="text-center lg:mt-20 md:my-10 my-5 lg:mb-10">
-        <h1 className="text-4xl font-bold mb-2">Featured Artworks</h1>
+        <h1 className="text-4xl font-bold mb-2">
+          {text}
+          <Cursor cursorStyle="|" />
+        </h1>
         <p className="text-xl">
-          Discover the latest masterpieces from our talented community
+          <Fade delay={1e3} cascade damping={1e-1}>
+                  Discover the latest masterpieces from our talented community
+                </Fade>
         </p>
       </div>
 

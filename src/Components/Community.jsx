@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Star, Users, TrendingUp } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Fade } from "react-awesome-reveal";
 
 const Community = () => {
   useEffect(() => {
@@ -19,8 +20,10 @@ const Community = () => {
       <h2 data-aos="fade-left" className="text-4xl md:text-3xl text-2xl font-bold  mb-3">
         Why Join Artify?
       </h2>
-      <p data-aos="fade-right" className="text-gray-600 mb-12">
-        Be part of a creative community that celebrates art in all its forms
+      <p  className="text-gray-600 mb-12">
+        <Fade delay={1e3} cascade damping={1e-1}>
+                 Be part of a creative community that celebrates art in all its forms
+                </Fade>
       </p>
 
       <div className="grid md:grid-cols-3 gap-10 container mx-auto px-6">

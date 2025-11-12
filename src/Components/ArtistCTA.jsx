@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Fade } from 'react-awesome-reveal';
 
 const ArtistCTA = () => {
 
@@ -31,7 +32,11 @@ const ArtistCTA = () => {
       data-aos="fade-right"
       className="text-white text-lg md:text-xl mt-4 max-w-2xl">
         Join thousands of artists who are already showcasing their creativity on{" "}
-        <span className="font-semibold text-red-400">ARTIFY</span>.
+        <span className="font-semibold text-red-400">
+          <Fade delay={1e3} cascade damping={1e-1}>
+                  ARTIFY
+                </Fade>
+          </span>.
       </p>
 
     </section>

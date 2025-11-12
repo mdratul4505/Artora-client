@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Fade } from "react-awesome-reveal";
 
 const TopArts = () => {
   useEffect(() => {
@@ -22,9 +23,11 @@ const TopArts = () => {
           Top Artists of the Week
         </h1>
         <p
-        data-aos="fade-left"
+
         className="text-gray-500 md:text-lg lg:text-xl">
-          Learn from the best Artist of the week
+          <Fade delay={1e3} cascade damping={1e-1}>
+                  Learn from the best Artist of the week
+                </Fade>
         </p>
       </div>
 

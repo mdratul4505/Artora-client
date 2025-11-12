@@ -8,11 +8,11 @@ const Favorites = () => {
   const [favorites, setFavorites] = useState([]);
 
   const [text] = useTypewriter({
-    words: ["My Favorites "],
+    words: ["My Favorites Card"],
     loop: 0, 
-    typeSpeed: 100,
+    typeSpeed: 150,
     deleteSpeed: 80,
-    delaySpeed: 3000,
+    delaySpeed: 2000,
   });
 
 

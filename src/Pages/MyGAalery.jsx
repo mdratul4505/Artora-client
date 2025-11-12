@@ -4,11 +4,21 @@ import { Link } from "react-router";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import logo from "../../public/logo.png";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const MyGallery = () => {
   const { user } = useContext(AuthContext);
   const [arts, setArts] = useState([]);
   const [loading, setLoading] = useState(true);
+
+
+  const [text] = useTypewriter({
+      words: ["My Gallery"],
+      loop: 0, 
+      typeSpeed: 150,
+      deleteSpeed: 80,
+      delaySpeed: 2000,
+    });
 
   // Fetch user artworks
   useEffect(() => {
@@ -75,7 +85,9 @@ const MyGallery = () => {
           alt="Logo"
         />
         <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold text-center">
-          My Gallery ({arts.length})
+          {text}
+          <Cursor cursorStyle="|" />
+           ({arts.length})
         </h1>
       </div>
 

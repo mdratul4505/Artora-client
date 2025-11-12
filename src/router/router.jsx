@@ -13,6 +13,7 @@ import { FadeLoader } from "react-spinners";
 import CartDeatils from "../Components/CartDeatils";
 import DataUpdate from "../Pages/DataUpdate";
 
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -89,6 +90,7 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:3000/explore-artworks/${params.id}`),
       },
+      
     ],
   },
 ]);

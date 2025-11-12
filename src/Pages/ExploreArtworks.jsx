@@ -4,6 +4,7 @@ import AllArtworkCard from "../Components/AllArtworkCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import FilterCategory from "../Components/FilterCategory";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
 
 const ExploreArtworks = () => {
   useEffect(() => {
@@ -15,6 +16,15 @@ const ExploreArtworks = () => {
     });
     AOS.refresh();
   }, []);
+
+  const [text] = useTypewriter({
+    words: ["Explore Artworks"], 
+    loop: 0,
+    typeSpeed: 150,
+    deleteSpeed: 80,
+    delaySpeed: 1500,
+  });
+
 
   const loaderData = useLoaderData();
   const [art, setArt] = useState(loaderData);
@@ -42,10 +52,12 @@ const ExploreArtworks = () => {
   return (
     <div className="container mx-auto">
       <div
-        data-aos="fade-left"
+
         className="font-bold text-4xl text-center mt-10 mb-5"
       >
-        Explore Artworks ({art.length})
+        {text}
+        <Cursor cursorStyle="|" />
+         ({art.length})
       </div>
       <div data-aos="fade-right" className="text-xl text-center">
         Discover amazing artworks from talented artists around the world
