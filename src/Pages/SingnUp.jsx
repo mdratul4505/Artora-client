@@ -163,6 +163,7 @@ const SignUp = () => {
             >
               {showPassword ? <FaEyeSlash /> : <FaEye />}
             </span>
+            {passwordError && <p className="text-sm text-red-500">{passwordError}</p>}
           </div>
 
           <button

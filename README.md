@@ -1,16 +1,56 @@
-# React + Vite
+# 🎨 ARTORA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Artify** is a modern art-sharing platform where users can explore artworks, sign up, log in, and connect with creative people.  
+Built using **React + Tailwind CSS + Firebase + MongoDB**, this project focuses on smooth UI, responsive design, and beautiful animations.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- ✨ **Modern UI/UX** with clean layout and soft color scheme  
+- 🔐 **User Authentication** using Firebase (Email & Google Login)  
+- 🎭 **Community Highlights** section with creative artworks  
+- 🖼️ **Artist Dashboard** for showing uploaded artworks  
+- 🌗 **Light & Dark Theme Toggle** (Custom CSS variables + DaisyUI themes)  
+- 🎞️ **Smooth Animations** with AOS and react-awesome-reveal  
+- 🧩 **Responsive Design** for all devices  
+- 🪄 **Reusable Components** built using DaisyUI and HTML elements  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies Used
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### **Frontend**
+- ⚛️ React (Vite)
+- 🎨 Tailwind CSS
+- 💠 DaisyUI (for prebuilt, themeable UI components)
+- 🌈 react-awesome-reveal (for fade, zoom, and cascade effects)
+- 🪶 AOS (Animate On Scroll)
+- 🔥 Firebase Authentication
+- ⚙️ React Router
+- 🍞 React Hot Toast (for notifications)
+- 🌐 Fetch API (for connecting to backend)
+- 🧱 HTML5 (for structure and semantic layout)
+
+### **Backend**
+- 🧩 Node.js + Express.js
+- 🍃 MongoDB Atlas (for storing artworks and user data)
+- 🔑 JWT (for secure routes and authentication)
+
+---
+
+## 🖥️ Pages Overview
+
+| Page | Description |
+|------|--------------|
+| **Home Page** | Contains slider, featured artworks, and community highlights |
+| **Login / Sign Up** | Firebase Auth integrated with Google and Email/Password |
+| **Artist Dashboard** | Shows artist info and uploaded artworks |
+| **Upload Page** | Add new artwork with title, image, and category |
+| **Community Page** | Explore artworks uploaded by others |
+
+---
+
+## live Link :
+
+

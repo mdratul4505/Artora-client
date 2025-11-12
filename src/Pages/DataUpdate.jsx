@@ -7,17 +7,27 @@ import "aos/dist/aos.css";
 
 const DataUpdate = () => {
   useEffect(() => {
-          Aos.init({
-            offset: 200,
-            duration: 1000,
-            easing: "ease-in-sine",
-            delay: 100,
-          });
-        }, []);
+    Aos.init({
+      offset: 200,
+      duration: 1000,
+      easing: "ease-in-sine",
+      delay: 100,
+    });
+  }, []);
 
   const navigate = useNavigate();
   const data = useLoaderData();
-  const { _id, image, title, category, medium, description, dimensions, price, visibility } = data;
+  const {
+    _id,
+    image,
+    title,
+    category,
+    medium,
+    description,
+    dimensions,
+    price,
+    visibility,
+  } = data;
 
   const handleUpdate = (e) => {
     e.preventDefault();
@@ -34,7 +44,7 @@ const DataUpdate = () => {
       visibility: form.visibility.value,
     };
 
-    fetch(`http://localhost:3000/explore-artworks/${_id}`, {
+    fetch(`https://artora-server.vercel.app/explore-artworks/${_id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),
@@ -50,7 +60,7 @@ const DataUpdate = () => {
   return (
     <div className="min-h-screen  flex items-center justify-center px-4 py-20">
       <form
-      data-aos="zoom-in-down"
+        data-aos="zoom-in-down"
         onSubmit={handleUpdate}
         className="bg-white rounded-xl shadow-md w-full max-w-xl space-y-5 px-6 py-10"
       >
@@ -59,7 +69,9 @@ const DataUpdate = () => {
         </h2>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Image URL</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Image URL
+          </label>
           <input
             type="url"
             name="image"
@@ -69,7 +81,9 @@ const DataUpdate = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Title</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Title
+          </label>
           <input
             type="text"
             name="title"
@@ -79,7 +93,9 @@ const DataUpdate = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Category</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Category
+          </label>
           <select
             name="category"
             defaultValue={category}
@@ -94,7 +110,9 @@ const DataUpdate = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Medium</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Medium
+          </label>
           <input
             type="text"
             name="medium"
@@ -104,7 +122,9 @@ const DataUpdate = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Description</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Description
+          </label>
           <textarea
             name="description"
             defaultValue={description}
@@ -115,7 +135,9 @@ const DataUpdate = () => {
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Dimensions</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Dimensions
+            </label>
             <input
               type="text"
               name="dimensions"
@@ -124,7 +146,9 @@ const DataUpdate = () => {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Price ($)</label>
+            <label className="block text-sm font-medium text-gray-700">
+              Price ($)
+            </label>
             <input
               type="number"
               name="price"
@@ -135,7 +159,9 @@ const DataUpdate = () => {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Visibility</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Visibility
+          </label>
           <select
             name="visibility"
             defaultValue={visibility}

@@ -9,29 +9,30 @@ const Favorites = () => {
 
   const [text] = useTypewriter({
     words: ["My Favorites Card"],
-    loop: 0, 
+    loop: 0,
     typeSpeed: 150,
     deleteSpeed: 80,
     delaySpeed: 2000,
   });
 
-
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/favorites?email=${user.email}`)
-        .then(res => res.json())
-        .then(data => setFavorites(data));
+      fetch(`https://artora-server.vercel.app/favorites?email=${user.email}`)
+        .then((res) => res.json())
+        .then((data) => setFavorites(data));
     }
   }, [user]);
 
-
   const handleDelete = async (id) => {
-    const res = await fetch(`http://localhost:3000/favorites/${id}`, {
-      method: "DELETE"
-    });
+    const res = await fetch(
+      `https://artora-server.vercel.app/favorites/${id}`,
+      {
+        method: "DELETE",
+      }
+    );
 
     if (res.ok) {
-      setFavorites(prev => prev.filter(fav => fav._id !== id));
+      setFavorites((prev) => prev.filter((fav) => fav._id !== id));
     }
   };
 
@@ -45,13 +46,9 @@ const Favorites = () => {
       {favorites.length === 0 ? (
         <p className="text-center">No favorites yet.</p>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {favorites.map(fav => (
-            <FavoriteCards
-              key={fav._id}
-              fav={fav}
-              onDelete={handleDelete} 
-            />
+        <div className="grid px-4 grid-cols-1 md:grid-cols-3 gap-4">
+          {favorites.map((fav) => (
+            <FavoriteCards key={fav._id} fav={fav} onDelete={handleDelete} />
           ))}
         </div>
       )}

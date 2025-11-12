@@ -13,7 +13,6 @@ import { FadeLoader } from "react-spinners";
 import CartDeatils from "../Components/CartDeatils";
 import DataUpdate from "../Pages/DataUpdate";
 
-
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,13 +27,14 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
-        loader: () => fetch("http://localhost:3000/latest-artworks")
+        loader: () => fetch("https://artora-server.vercel.app/latest-artworks"),
       },
 
       {
         path: "/explore-artworks",
         Component: ExploreArtworks,
-        loader: () => fetch("http://localhost:3000/explore-artworks"),
+        loader: () =>
+          fetch("https://artora-server.vercel.app/explore-artworks"),
       },
       {
         path: "/explore-artworks/:id",
@@ -43,7 +43,6 @@ export const router = createBrowserRouter([
             <CartDeatils></CartDeatils>
           </PrivateRoute>
         ),
-        
       },
 
       {
@@ -88,9 +87,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/explore-artworks/${params.id}`),
+          fetch(
+            `https://artora-server.vercel.app/explore-artworks/${params.id}`
+          ),
       },
-      
     ],
   },
 ]);

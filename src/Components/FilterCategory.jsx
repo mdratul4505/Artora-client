@@ -17,17 +17,17 @@ const FilterCategory = ({ onFilter }) => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/filter-artworks?category=${category.toLowerCase()}`
+        `https://artora-server.vercel.app/filter-artworks?category=${category.toLowerCase()}`
       );
       const data = await res.json();
-      onFilter(data); 
+      onFilter(data);
     } catch (error) {
       console.error("Failed to fetch filtered artworks:", error);
     }
   };
 
   return (
-    <div className="bg-gray-200 dark:bg-gray-800 p-4 flex items-center gap-4 justify-center flex-wrap rounded-xl">
+    <div className="bg-gray-200 dark:bg-gray-800 p-4 flex items-center gap-2 md:gap-3 lg:gap-4 justify-center flex-wrap rounded-xl">
       {categories.map((cat) => (
         <button
           key={cat}

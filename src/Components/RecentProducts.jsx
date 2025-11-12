@@ -29,7 +29,7 @@ const RecentProducts = () => {
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid px-4 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {data.map((art) => (
           <LatestCard key={art._id} art={art}></LatestCard>
         ))}

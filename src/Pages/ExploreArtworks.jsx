@@ -18,29 +18,27 @@ const ExploreArtworks = () => {
   }, []);
 
   const [text] = useTypewriter({
-    words: [""], 
+    words: ["Explore Artworks"],
     loop: 0,
     typeSpeed: 150,
     deleteSpeed: 80,
     delaySpeed: 1500,
   });
 
-
   const loaderData = useLoaderData();
   const [art, setArt] = useState(loaderData);
   const [searchText, setSearchText] = useState("");
-  const [loding , setloding] =useState(false)
-
+  const [loding, setloding] = useState(false);
 
   useEffect(() => {
     if (searchText.trim() === "Explore Artworks") {
       setArt(loaderData);
-      setloding(true)
+      setloding(true);
       return;
     }
 
     const timer = setTimeout(() => {
-      fetch(`http://localhost:3000/search?search=${searchText}`)
+      fetch(`https://artora-server.vercel.app/search?search=${searchText}`)
         .then((res) => res.json())
         .then((data) => setArt(data))
         .catch((err) => console.error(err));
@@ -50,14 +48,10 @@ const ExploreArtworks = () => {
   }, [searchText, loaderData]);
 
   return (
-    <div className="container mx-auto">
-      <div
-
-        className="font-bold text-4xl text-center mt-10 mb-5"
-      >
+    <div className="container overflow-x-hidden mx-auto">
+      <div className="font-bold text-4xl text-center mt-10 mb-5">
         {text}
-        <Cursor cursorStyle="|" />
-         ({art.length})
+        <Cursor cursorStyle="|" />({art.length})
       </div>
       <div data-aos="fade-right" className="text-xl text-center">
         Discover amazing artworks from talented artists around the world
@@ -96,20 +90,18 @@ const ExploreArtworks = () => {
         </label>
       </div>
 
-
       <div className="my-20">
         <FilterCategory onFilter={setArt} />
       </div>
 
-
-      <div className="grid my-15 gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid px-4 my-15 gap-5 md:grid-cols-2 lg:grid-cols-4">
         {art.length > 0 ? (
           art.map((artwork) => (
             <AllArtworkCard key={artwork._id} art={artwork}></AllArtworkCard>
           ))
         ) : (
           <p className="text-center text-gray-500 col-span-4">
-            No artworks found 
+            No artworks found
           </p>
         )}
       </div>

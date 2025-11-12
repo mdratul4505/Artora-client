@@ -16,7 +16,7 @@ const AllArtworkCard = ({ art }) => {
       <div className="p-4 space-y-2">
 
         <div className="flex justify-between item-center">
-          <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
+          <h3 className="text-lg font-semibold ">{title}</h3>
           <span className="inline-block bg-[#FFD7D1] text-[#FF6F61] text-xs font-medium px-3 py-1 rounded-full">
             {category}
           </span>

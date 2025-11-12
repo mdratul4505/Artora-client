@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 import toast from "react-hot-toast";
 import Swal from "sweetalert2";
 import logo from "../../public/logo.png";
@@ -11,20 +11,19 @@ const MyGallery = () => {
   const [arts, setArts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-
   const [text] = useTypewriter({
-      words: ["My Gallery"],
-      loop: 0, 
-      typeSpeed: 150,
-      deleteSpeed: 80,
-      delaySpeed: 2000,
-    });
+    words: ["My Gallery"],
+    loop: 0,
+    typeSpeed: 150,
+    deleteSpeed: 80,
+    delaySpeed: 2000,
+  });
 
   // Fetch user artworks
   useEffect(() => {
     if (user?.email) {
       setLoading(true);
-      fetch(`http://localhost:3000/my-gallery?email=${user.email}`)
+      fetch(`https://artora-server.vercel.app/my-gallery?email=${user.email}`)
         .then((res) => res.json())
         .then((data) => {
           setArts(data);
@@ -50,16 +49,12 @@ const MyGallery = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/explore-artworks/${id}`, {
+        fetch(`https://artora-server.vercel.app/explore-artworks/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then(() => {
-            Swal.fire(
-              "Deleted!",
-              "Your artwork has been deleted.",
-              "success"
-            );
+            Swal.fire("Deleted!", "Your artwork has been deleted.", "success");
             setArts((prev) => prev.filter((art) => art._id !== id));
           })
           .catch(() => toast.error("Failed to delete."));
@@ -86,8 +81,7 @@ const MyGallery = () => {
         />
         <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold text-center">
           {text}
-          <Cursor cursorStyle="|" />
-           ({arts.length})
+          <Cursor cursorStyle="|" />({arts.length})
         </h1>
       </div>
 
