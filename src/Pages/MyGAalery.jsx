@@ -74,7 +74,7 @@ const MyGallery = () => {
           src={logo}
           alt="Logo"
         />
-        <h1 className="text-3xl font-semibold text-center">
+        <h1 className="lg:text-4xl md:text-3xl text-2xl font-semibold text-center">
           My Gallery ({arts.length})
         </h1>
       </div>

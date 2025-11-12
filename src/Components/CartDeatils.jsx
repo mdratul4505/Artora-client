@@ -1,5 +1,3 @@
-
-
 import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import toast from "react-hot-toast";
@@ -44,16 +42,19 @@ const CartDetails = () => {
     userName,
     created_at,
     likes = 0,
+    userPhoto,
   } = data || {};
+  console.log(userPhoto)
 
   const [likeCount, setLikeCount] = useState(likes);
   const [isFavorite, setIsFavorite] = useState(false);
   const [artistArtworks, setArtistArtworks] = useState([]);
   const [artistInfo, setArtistInfo] = useState({ photoURL: "", totalArtworks: 0 });
 
+
   const formattedDate = created_at ? new Date(created_at).toLocaleDateString() : "";
 
-  // Like artwork
+
   const handleLike = async () => {
     try {
       const res = await fetch(`http://localhost:3000/explore-artworks/${_id}/like`, {
@@ -61,7 +62,7 @@ const CartDetails = () => {
       });
       if (res.ok) {
         setLikeCount((prev) => prev + 1);
-        toast.success("You liked this artwork ❤️");
+        toast.success("You liked this artwork ");
       }
     } catch (err) {
       console.error(err);
@@ -69,7 +70,7 @@ const CartDetails = () => {
     }
   };
 
-  // Add to favorites
+
   const handleFavorite = async () => {
     if (!user?.email) return toast.error("Login first to add favorites!");
     try {
@@ -95,15 +96,15 @@ const CartDetails = () => {
     }
   };
 
-  // Get other artworks by the same artist
+
   useEffect(() => {
     if (userName) {
       fetch(`http://localhost:3000/artist-artworks/${userName}`)
         .then((res) => res.json())
         .then((data) => {
+
           setArtistArtworks(data || []);
           setArtistInfo({
-            photoURL: data[0]?.userPhoto || "",
             totalArtworks: data.length,
           });
         })
@@ -115,7 +116,7 @@ const CartDetails = () => {
 
   return (
     <div className="min-h-screen bg-[#FCF9F5] flex flex-col justify-center items-center px-4 py-16">
-      {/* Artwork Detail Card */}
+
       <div className="bg-white rounded-2xl shadow-lg max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 mb-10">
         <div className="p-5">
           <img
@@ -135,19 +136,14 @@ const CartDetails = () => {
             </div>
             <p className="text-gray-500 text-sm mt-1">Created on {formattedDate}</p>
 
-            {/* Artist info */}
             <div className="mt-4 p-3 border rounded-xl flex items-center gap-3">
-              {artistInfo.photoURL ? (
+              
                 <img
                   className="rounded-full h-10 w-10"
-                  src={artistInfo.photoURL}
+                  src={userPhoto}
                   alt={userName}
                 />
-              ) : (
-                <div className="bg-gray-300 h-10 w-10 rounded-full flex items-center justify-center">
-                  {userName[0]}
-                </div>
-              )}
+             
               <div>
                 <p className="text-sm text-gray-400">Artist</p>
                 <h3 className="font-medium">{userName}</h3>
@@ -155,7 +151,6 @@ const CartDetails = () => {
               </div>
             </div>
 
-            {/* Artwork info */}
             <div className="mt-6 space-y-2 text-gray-700">
               <p>
                 <span className="font-semibold">Medium:</span> {medium}
@@ -167,12 +162,11 @@ const CartDetails = () => {
                 <span className="font-semibold">Dimensions:</span> {dimensions}
               </p>
               <p>
-                <span className="font-semibold">Price:</span> ${price}
+                <span className="font-semibold">Price:</span> $ <span className="text-red-500">{price}</span>
               </p>
             </div>
           </div>
 
-          {/* Buttons */}
           <div className="mt-8 flex gap-4">
             <button
               onClick={handleLike}
@@ -195,7 +189,7 @@ const CartDetails = () => {
         </div>
       </div>
 
-      {/* Other artworks by same artist */}
+
       <div className="max-w-5xl w-full">
         <h2 className="text-2xl font-bold mb-4">Other artworks by {userName}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -51,6 +51,7 @@ const Navbar = () => {
       
     </>
   );
+ 
 
   return (
     <div className="sticky top-0 z-50 border-b border-gray-300 bg-white shadow-md">
@@ -104,6 +105,13 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
+          <div className="mr-5">
+            <input
+            onChange={(e) => handleTheme(e.target.checked)}
+            type="checkbox"
+            defaultChecked={localStorage.getItem("theme") === "dark"}
+            className="toggle "/>
+          </div>
           {user ? (
             <>
               <div className="relative group flex items-center">

@@ -4,7 +4,7 @@ import LatestCard from "./LatestCard";
 
 const RecentProducts = () => {
   const data = useLoaderData();
-  console.log(data);
+
   return (
     <div className="container mx-auto">
       <div className="text-center lg:mt-20 md:my-10 my-5 lg:mb-10">

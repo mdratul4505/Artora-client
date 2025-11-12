@@ -33,7 +33,7 @@ const FavoriteCards = ({ fav, onDelete }) => {
           onClick={handleRemove}
           className="mt-2 px-2 py-1 bg-red-400 text-white rounded"
         >
-          Remove
+          Un Favorite
         </button>
       </div>
     </div>

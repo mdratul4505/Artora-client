@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router";
 import AllArtworkCard from "../Components/AllArtworkCard";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import FilterCategory from "../Components/FilterCategory";
 
 const ExploreArtworks = () => {
   useEffect(() => {
@@ -81,6 +82,11 @@ const ExploreArtworks = () => {
             className="flex-1 bg-transparent outline-none text-gray-700"
           />
         </label>
+      </div>
+
+
+      <div className="my-20">
+        <FilterCategory onFilter={setArt} />
       </div>
 
 

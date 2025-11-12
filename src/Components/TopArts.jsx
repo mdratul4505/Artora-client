@@ -14,7 +14,7 @@ const TopArts = () => {
   }, []);
 
   return (
-    <div className="mt-15  md:mt-20 lg:mt-25   bg-purple-50 py-10 md:py-15 lg:py-20">
+    <div className="mt-15  md:mt-20 lg:mt-25   bg-purple-50  py-10 md:py-15 lg:py-20">
       <div className="mb-15 text-center space-y-4">
         <h1
         data-aos="fade-right"

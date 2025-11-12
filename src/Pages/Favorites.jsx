@@ -1,10 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import FavoriteCards from "../Components/FavoriteCards";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 
 const Favorites = () => {
   const { user } = useContext(AuthContext);
   const [favorites, setFavorites] = useState([]);
+
+  const [text] = useTypewriter({
+    words: ["My Favorites "],
+    loop: 0, 
+    typeSpeed: 100,
+    deleteSpeed: 80,
+    delaySpeed: 3000,
+  });
+
 
   useEffect(() => {
     if (user?.email) {
@@ -14,7 +24,7 @@ const Favorites = () => {
     }
   }, [user]);
 
-  // handle delete from parent
+
   const handleDelete = async (id) => {
     const res = await fetch(`http://localhost:3000/favorites/${id}`, {
       method: "DELETE"
@@ -26,8 +36,12 @@ const Favorites = () => {
   };
 
   return (
-    <div className="my-10 container mx-auto bg-white">
-      <h2 className="text-3xl text-center font-bold mb-4">My Favorites</h2>
+    <div className="my-10 container mx-auto ">
+      <h2 className="md:text-3xl text-2xl lg:text-4xl text-center font-bold mb-10">
+        {text}
+        <Cursor cursorStyle="|" />
+        <span className="text-gray-500 ml-2">({favorites.length})</span>
+      </h2>
       {favorites.length === 0 ? (
         <p className="text-center">No favorites yet.</p>
       ) : (

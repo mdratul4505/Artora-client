@@ -4,6 +4,7 @@ import { Link } from "react-router";
 
 const AllArtworkCard = ({ art }) => {
   const { image, category, title, _id, userName, likes } = art;
+
   return (
     <div
 
