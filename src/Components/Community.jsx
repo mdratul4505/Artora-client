@@ -20,7 +20,7 @@ const Community = () => {
       <h2 data-aos="fade-left" className="text-4xl md:text-3xl text-2xl font-bold  mb-3">
         Why Join Artify?
       </h2>
-      <div  className=" mb-12">
+      <div  className=" mb-12 px-4">
         <Fade delay={1e3} cascade damping={1e-1}>
                  Be part of a creative community that celebrates art in all its forms
                 </Fade>

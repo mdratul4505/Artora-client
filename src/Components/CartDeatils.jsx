@@ -73,7 +73,7 @@ const CartDetails = () => {
         ).then((r) => r.json());
         setLikeCount(updated.likes);
         setData(updated);
-        toast.success("You liked this artwork ❤️");
+        toast.success("You liked this artwork ");
       }
     } catch (err) {
       console.error(err);

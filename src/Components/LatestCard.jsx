@@ -19,7 +19,7 @@ const LatestCard = ({ art }) => {
       <div className="p-4 space-y-2">
 
         <div className="flex justify-between item-center">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white">{title}</h3>
+          <h3 className="text-lg font-semibold ">{title}</h3>
           <span className="inline-block bg-[#FFD7D1] text-[#FF6F61] text-xs font-medium px-3 py-1 rounded-full">
             {category}
           </span>
@@ -27,7 +27,7 @@ const LatestCard = ({ art }) => {
 
 
         <div className="flex items-center justify-between pt-1">
-          <p className="text-sm text-gray-500">by : <span className="bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] text-transparent bg-clip-text font-semibold">{userName}</span></p>
+          <p className="text-sm ">by : <span className="bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] text-transparent bg-clip-text font-semibold">{userName}</span></p>
           <div className="flex items-center gap-1">
             <Heart className="w-4 h-4" />
             <span>{likes}</span>

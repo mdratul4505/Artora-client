@@ -22,7 +22,7 @@ const RecentProducts = () => {
           {text}
           <Cursor cursorStyle="|" />
         </h1>
-        <div className="text-xl">
+        <div className="text-xl px-4">
           <Fade delay={1e3} cascade damping={1e-1}>
                   <div>Discover the latest masterpieces from our talented community</div>
                 </Fade>

@@ -49,11 +49,11 @@ const ExploreArtworks = () => {
 
   return (
     <div className="container overflow-x-hidden mx-auto">
-      <div className="font-bold text-4xl text-center mt-10 mb-5">
+      <div className="font-bold text-4xl text-center px-4 mt-10 mb-5">
         {text}
         <Cursor cursorStyle="|" />({art.length})
       </div>
-      <div data-aos="fade-right" className="text-xl text-center">
+      <div data-aos="fade-right" className="text-xl px-4 text-center">
         Discover amazing artworks from talented artists around the world
       </div>
 

@@ -4,7 +4,7 @@ import { FaFacebookF, FaInstagram } from 'react-icons/fa';
 import logo from "../../public/logo.png";
 import { RiTwitterXLine } from 'react-icons/ri';
 import { FaEnvelopeCircleCheck } from 'react-icons/fa6';
-import { Link, NavLink } from 'react-router';
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
@@ -41,11 +41,11 @@ const Footer = () => {
               </a>
             </li>
             <li className="hover:text-[#FF8C88] transition">
-        <NavLink to="/explore">Explotr Artworks</NavLink>
+        <Link to="/explore-artworks">Explotr Artworks</Link>
       </li>
             
             <li>
-              <Link to="/join" className="hover:text-[#FF8C88] transition">
+              <Link to="/login" className="hover:text-[#FF8C88] transition">
                 Join as Artist
               </Link>
               </li>
