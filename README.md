@@ -1,45 +1,45 @@
-# 🎨 ARTORA
+#  ARTORA
 
 **Artify** is a modern art-sharing platform where users can explore artworks, sign up, log in, and connect with creative people.  
 Built using **React + Tailwind CSS + Firebase + MongoDB**, this project focuses on smooth UI, responsive design, and beautiful animations.
 
 ---
 
-## 🚀 Features
+##  Features
 
-- ✨ **Modern UI/UX** with clean layout and soft color scheme  
-- 🔐 **User Authentication** using Firebase (Email & Google Login)  
-- 🎭 **Community Highlights** section with creative artworks  
-- 🖼️ **Artist Dashboard** for showing uploaded artworks  
-- 🌗 **Light & Dark Theme Toggle** (Custom CSS variables + DaisyUI themes)  
-- 🎞️ **Smooth Animations** with AOS and react-awesome-reveal  
-- 🧩 **Responsive Design** for all devices  
-- 🪄 **Reusable Components** built using DaisyUI and HTML elements  
+-  **Modern UI/UX** with clean layout and soft color scheme  
+-  **User Authentication** using Firebase (Email & Google Login)  
+-  **Community Highlights** section with creative artworks  
+-  **Artist Dashboard** for showing uploaded artworks  
+-  **Light & Dark Theme Toggle** (Custom CSS variables + DaisyUI themes)  
+-  **Smooth Animations** with AOS and react-awesome-reveal  
+-  **Responsive Design** for all devices  
+-  **Reusable Components** built using DaisyUI and HTML elements  
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 ### **Frontend**
-- ⚛️ React (Vite)
-- 🎨 Tailwind CSS
-- 💠 DaisyUI (for prebuilt, themeable UI components)
-- 🌈 react-awesome-reveal (for fade, zoom, and cascade effects)
-- 🪶 AOS (Animate On Scroll)
-- 🔥 Firebase Authentication
-- ⚙️ React Router
-- 🍞 React Hot Toast (for notifications)
-- 🌐 Fetch API (for connecting to backend)
-- 🧱 HTML5 (for structure and semantic layout)
+-  React (Vite)
+-  Tailwind CSS
+-  DaisyUI (for prebuilt, themeable UI components)
+-  react-awesome-reveal (for fade, zoom, and cascade effects)
+-  AOS (Animate On Scroll)
+-  Firebase Authentication
+-  React Router
+-  React Hot Toast (for notifications)
+-  Fetch API (for connecting to backend)
+-  HTML5 (for structure and semantic layout)
 
 ### **Backend**
-- 🧩 Node.js + Express.js
-- 🍃 MongoDB Atlas (for storing artworks and user data)
-- 🔑 JWT (for secure routes and authentication)
+-  Node.js + Express.js
+-  MongoDB Atlas (for storing artworks and user data)
+-  JWT (for secure routes and authentication)
 
 ---
 
-## 🖥️ Pages Overview
+##  Pages Overview
 
 | Page | Description |
 |------|--------------|
@@ -51,6 +51,6 @@ Built using **React + Tailwind CSS + Firebase + MongoDB**, this project focuses 
 
 ---
 
-## live Link :
+## live Link : https://artora-d8ed5.web.app
 
 
