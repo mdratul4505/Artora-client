@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Link } from "react-router";
 
 const HeroSection = () => {
   return (
@@ -38,9 +39,9 @@ const HeroSection = () => {
                   Discover trending artists and breathtaking artwork from around
                   the world.
                 </p>
-                <button className="btn bg-gradient-to-r from-[#79D7D0] to-[#FF8C88] border-none text-white">
+                <Link to={'/explore-artworks'} className="btn bg-gradient-to-r from-[#79D7D0] to-[#FF8C88] border-none text-white">
                   Get Inspired
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -61,9 +62,9 @@ const HeroSection = () => {
                   Share your creativity and connect with other passionate
                   artists.
                 </p>
-                <button className="btn bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] border-none text-white">
+                <Link to={'/login'} className="btn bg-gradient-to-r from-[#FF8C88] to-[#79D7D0] border-none text-white">
                   Join Community
-                </button>
+                </Link >
               </div>
             </div>
           </div>
@@ -86,9 +87,9 @@ const HeroSection = () => {
                   See what's hot in the art world and follow your favorite
                   creators.
                 </p>
-                <button className="btn bg-gradient-to-r from-blue-500 to-purple-500 border-none text-white">
+                <Link to={'/explore-artworks'} className="btn bg-gradient-to-r from-blue-500 to-purple-500 border-none text-white">
                   Explore Now
-                </button>
+                </Link>
               </div>
             </div>
           </div>
