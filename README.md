@@ -53,16 +53,16 @@ Built using **React + Tailwind CSS + Firebase + MongoDB**, this project focuses 
 
 ## live Link : https://artora-d8ed5.web.app
 
-##📂 Project Structure
-#### Clone the repository
-git clone :https://github.com/mdratul4505/Artora-client.git
-#### 2. Install dependencies
-npm install
+## 📂 Project Structure
+### Clone the repository
+- git clone :https://github.com/mdratul4505/Artora-client.git
+### 2. Install dependencies
+- npm install
 
-#### 3. Create a .env file with Firebase credentials and API URL
+### 3. Create a .env file with Firebase credentials and API URL
 
-#### 4.Run the project
-npm run dev
+### 4.Run the project
+- npm run dev
 
 
 
